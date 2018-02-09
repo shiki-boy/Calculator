@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#f44336">
+
+  <title>Calculator</title>
+
+  <!-- CSS  -->
+  <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<style type="text/css">
+    body{
+        transition: all 300ms;
+        background: whitesmoke;
+    }
+    #t{
+        text-align: right;
+        margin-top: 25px;
+        font-size: 28px;
+        color: black;
+        height: 30px;
+    }
+    #t2{
+        text-align: right;
+    }
+
+    .btn{
+        font-size: 28px;
+    }
+    .x{
+        font-size: 26px;
+        color: black;
+    }
+</style>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+       <a id="logo-container" href="#" class="brand-logo">Calculator</a>
+         <ul id="nav-mobile" class="side-nav red" style="margin-top: 11.25em;border-radius: 7px;">
+            <div class="container section center" style="margin-top: 100px;color: black;">
+                <li>
+                   <div class="row" style="margin-top:-20px;">
+                    <a class="x col s4 col waves-effect waves-light sidebtn" type="button">INV</a>
+                    <a class="x col s4  col waves-effect waves-light" type="button">RAD</a>
+                    <a class="x col s4  col waves-effect waves-light" type="button">%</a>
+                   </div>
+                </li>
+                <li>
+                    <div class="row" style="margin-top:-20px;">
+                     <a class="x col s4  waves-effect waves-light" type="button">sin</a>
+                     <a class="x col s4  waves-effect waves-light" type="button">cos</a>
+                     <a class="x col s4  waves-effect waves-light" type="button">tan</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="row" style="margin-top:-20px;">
+                     <a class="x col s4 waves-effect waves-light" type="button" >ln</a>
+                     <a class="x col s4 waves-effect waves-light" type="button" >log</a>
+                     <a class="x col s4 waves-effect waves-light" type="button" >!</a>
+                    </div>
+                </li>
+                <li>
+                     <div class="row" style="margin-top:-20px;">
+                      <a class="x col s4 waves-effect waves-light" type="button" value="pi">&#960</a>
+                      <a class="x col s4 waves-effect waves-light" type="button" value="e">e</a>
+                      <a class="x col s4 waves-effect waves-light" type="button" value="^">^</a>
+                     </div>
+                </li>
+                <li>
+                     <div class="row" style="margin-top:-20px;">        
+                      <a class="x col s4 waves-effect waves-light" type="button">&#8730</a>
+                     </div>
+                </li>
+                </div>
+            </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+    </nav>
+  
+  <div class="container">
+    <h3 id="t" class="flow-text"></h3>
+  </div>
+ 
+  <div class="section container">
+    <div class="row">
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">1</a>
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">2</a>
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">3</a>
+    </div>
+    <div class="row" style="margin-top:-20px;"> 
+        <a class="col s4 btn btn-large waves-effect waves-light <condensed></condensed>" type="button">4</a>
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">5</a>
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">6</a>
+    </div> 
+    <div class="row" style="margin-top:-20px;">
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">7</a>
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">8</a>
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">9</a>
+    </div>
+    <div class="row" style="margin-top:-20px;">
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">.</a>
+        <a class="col s4 btn btn-large waves-effect waves-light condensed" type="button">0</a>
+        <a class="col s4 btn btn-large green accent-3 waves-effect waves-green condensed calc" type="button" id="go">=</a>
+    </div>
+    <div class="row" style="margin-top:-20px;">
+        <a class="col s3 red btn btn-large waves-effect waves-red condensed" type="button">+</a>
+        <a class="col s3 blue btn btn-large waves-effect waves-blue condensed" type="button">-</a>
+        <a class="col s3 purple btn btn-large waves-effect waves-purple condensed" type="button">&divide</a>
+        <a class="col s3 amber darken-4 btn btn-large waves-effect waves-yellow condensed" type="button">&times</a>
+    </div>
+    <div class="row" style="margin-top: -20px;">
+        <a class="col s3 white black-text btn btn-large waves-effect waves-red condensed" type="button">c</a>
+        <a class="col s3 grey black-text btn btn-large waves-effect waves-red condensed" type="button">del</a>
+        <a class="col s3 teal btn btn-large waves-effect waves-teal condensed" type="button">(</a>
+        <a class="col s3 teal btn btn-large waves-effect waves-teal condensed" type="button">)</a>
+    </div>
+    </div>
+  
+    
+
+
+  <!--  Scripts-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+    
+    var n;
+    var stack = [];
+    var finalPostfix = [];
+    var calcStack = [];
+    var cpressed = true;
+
+    $(document).ready(()=>{
+        $(".btn").click(function(){
+            var number = $(this).text();
+            // number = number[0]['value'];
+            if(number !== '=' && number !== 'c' && number!='del' && cpressed){
+                number = $('#t').text()+number;
+                $("#t").text(''+number);
+                $("#t").effect('slide','fast');
+                number=parseFloat($("#t").text());
+                $(this).css("z-index","2");
+                $(this).css("box-shadow","none");
+                $(this).addClass("pulse");
+                setTimeout(()=>{
+                    $(this).css("z-index","1");
+                    $(this).removeClass("pulse");
+                },1000)
+            }
+            else if(number == '=' && cpressed){
+                if($("#t").text() != ""){
+                    calculate();
+                    anime();
+                    $("#t").css("text-align","center");
+                    changeBackground('#00e676');
+                    $(this).css("z-index","2");
+                    $(this).css("box-shadow","none");
+                    $(this).addClass("pulse");
+                    setTimeout(()=>{
+                        $(this).css("z-index","1");
+                        $(this).removeClass("pulse");
+                    },1000)
+                    cpressed = false;
+                }
+            }
+            else if(number == 'c'){
+                calcStack = [];
+                finalPostfix = [];
+                stack = [];
+                $("#t").css("text-align","right");
+                $("#t").text('');
+                changeBackground('whitesmoke');
+                $(this).css("z-index","2");
+                $(this).css("box-shadow","none");
+                $(this).addClass("pulse");
+                setTimeout(()=>{
+                    $(this).removeClass("pulse");
+                    $(this).css("z-index","1");
+                },1000)
+                cpressed = true;
+            }
+            else{
+                if(!cpressed)
+                    return;
+                var num = $("#t").text(); 
+                var a = num.slice(0,-1);
+                $("#t").text(''+a);
+                changeBackground('whitesmoke');
+                $(this).css("z-index","2");
+                $(this).css("box-shadow","none");
+                $(this).addClass("pulse");
+                setTimeout(()=>{
+                    $(this).removeClass("pulse");
+                    $(this).css("z-index","1");
+                },1000)
+            }
+        });
+        
+        
+        
+    });
+    
+    
+    
+    function calculate(){
+        n=$("#t").text();
+        n = "("+n+")";
+        var y = '';
+        var numbers = [];
+        for (x in n){
+            if ($.isNumeric(n[x]) || n[x] == '.'){
+                y += n[x];
+            }
+            else{
+                if (y != ''){
+                    numbers.push(y);
+                }
+                numbers.push(n[x])
+                y = '';
+            }
+        }
+        console.log(numbers);
+        doPostfix(numbers);
+        console.log(finalPostfix);
+        calc(finalPostfix);
+    }
+
+   
+    
+    function changeBackground(str){
+        $('body').css('background-color',''+str);
+    }
+
+    function doOperation(a,b,c){
+        if (c == '+')
+        return parseFloat(b) + parseFloat(a);
+    if (c == '-')
+        return parseFloat(b) - parseFloat(a);
+    if (c == '\xd7')
+        return parseFloat(b) * parseFloat(a);
+    if (c == '\xf7')
+        return parseFloat(b) / parseFloat(a);
+    if (c == '^')
+        return parseFloat(b) ** parseFloat(a);  
+    }
+
+    function check_precedence(operatorsStack,b){
+        if (b == '(' || b == ')' || operatorsStack == '('){
+            return true;
+        }
+        var x = "-+__\xd7\xf7__^";
+        var p1 = x.indexOf(operatorsStack);
+        var p2 = x.indexOf(b);
+        var z = p1 - p2;
+        if (z == 1 || z == -1)
+            return false;
+        else if (z < -1)
+            return true;
+        else if (z > 1)
+            return false;
+            
+        else if (z == 0)
+            return false;
+    }
+
+    function doPostfix(l){
+        for (x in l){
+            var done = 0;
+            if(l[x] == '('){
+                stack.push(l[x]);
+            }
+            else if($.isNumeric(l[x])){
+                finalPostfix.push(l[x]);
+            }
+            else if( !$.isNumeric(l[x]) && l[x] != ')'){
+                while(done != 1){
+                    if (check_precedence(stack[stack.length-1],l[x])){
+                        stack.push(l[x]);
+                        done = 1;
+                    }
+                    else{
+                        finalPostfix.push(stack.pop());
+                        done = 0;
+                    }
+                }
+            }
+            else if(l[x] == ')'){
+                while(stack[stack.length-1] != '('){
+                    finalPostfix.push(stack.pop());
+                    if(stack[stack.length-1] == '('){
+                        stack.pop()
+                        break;
+                    }
+                }
+                }
+            }
+    }
+    
+
+    function calc(f){
+        for(x in f){
+            if( $.isNumeric(f[x])){
+                calcStack.push(f[x]);
+            }
+            else{
+                calcStack.push(doOperation(calcStack.pop(),calcStack.pop(),f[x]));
+            }
+        }
+        $("#t").text('');
+        $("#t").text(''+calcStack[0]);
+    }
+
+    function anime(){
+        $("#t").velocity({
+            fontSize : "33px",
+            color : "#ffffff",
+            fontWeight : "500"
+        },10)
+
+        $(document).click(function(){
+            $("#t").css({
+                "font-weight" : "initial",
+                "font-size" : "28px",
+                "color":"black"
+            })
+        });
+    }
+
+    
+    
+    
+  </script>
+  </body>
+</html>

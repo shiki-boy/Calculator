@@ -1,2 +1,2 @@
 # Calculator
-### goto http://stack-calculator.herokuapp.com/
+### goto https://calculator-stack.herokuapp.com/
